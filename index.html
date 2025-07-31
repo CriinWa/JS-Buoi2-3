@@ -1,29 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>JS_2-3</title>
 </head>
-<body>
-    <h1 class="text-3xl font-bold underline bg-red-500 font"> bruh</h1>
-    <!-- Bài 1:  Tính tiền lương nhân viên -->
-    <div id="Bai_1" class="">
-        <h2>Tính tiền lương nhân viên</h2>
-        
 
+<body class="bg-gray-100 flex items-center justify-center">
+    <!-- <h1 class="text-3xl font-bold underline bg-red-500 font"> bruh</h1> -->
+    <div id="container" class="w-full max-w-4xl p-4 mx-auto">
+        <!-- Bài 1:  Tính tiền lương nhân viên -->
+        <div id="Bai_1" class="bg-white p-6 shadow rounded-lg max-w-4xl mb-4">
+            <h2 class="mb-5 text-red-600">Tính tiền lương nhân viên</h2>
+            <div class="mb-4">
+                <label for="LuongNgay" class="block text-sm font-medium text-gray-700">Lương 1 ngày</label>
+                <input type="number" id="LuongNgay"
+                    class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:outline-none px-3 py-2">
+                <!-- <input type="number" id="LuongNgay" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500"> -->
+            </div>
+            <div class="mb-4">
+                <label for="SoNgay" class="block text-sm font-medium text-gray-700">Số ngày làm</label>
+                <input type="number" id="SoNgay"
+                    class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm  focus:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:outline-none px-3 py-2">
+            </div>
+            <button onclick="tinhLuong()" id="btnTinhLuong"
+                class="bg-blue-400 text-white px-4 py-2 rounded-md hover:bg-blue-600">Tính lương</button>
+            <div id="result1" class="mt-4 text-center text-lg font-semibold"></div>
+        </div>
+        <!-- Bài 2: Tính giá trị trung bình 5 số -->
+        <div id="Bai_2" class="bg-white p-6 shadow rounded-lg max-w-4xl mb-4">
+            <h2 class="mb-5 text-red-600">Tính giá trị trung bình 5 số</h2>
+            <div class="grid grid-cols-2 gap-4 mb-4">
+                <div>
+                    <label for="num1" class="block text-sm font-medium text-gray-700">Số 1</label>
+                    <input type="number" id="num1"
+                        class="mt-1 px-3 py-2 block w-full border border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:outline-none">
+                </div>
+                <div>
+                    <label for="num2" class="block text-sm font-medium text-gray-700">Số 2</label>
+                    <input type="number" id="num2"
+                        class="mt-1 px-3 py-2 block w-full border border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:outline-none">
+                </div>
+                <div>
+                    <label for="num3" class="block text-sm font-medium text-gray-700">Số 3</label>
+                    <input type="number" id="num3"
+                        class="mt-1 px-3 py-2 block w-full border border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:outline-none">
+                </div>
+                <div>
+                    <label for="num4" class="block text-sm font-medium text-gray-700">Số 4</label>
+                    <input type="number" id="num4"
+                        class="mt-1 px-3 py-2 block w-full border border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:outline-none">
+                </div>
+                <div>
+                    <label for="num5" class="block text-sm font-medium text-gray-700">Số 5</label>
+                    <input type="number" id="num5"
+                        class="mt-1 px-3 py-2 block w-full border border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:outline-none">
+                </div>
+            </div>
 
+            <button onclick="tinhTrungBinh()" id="btnTinhTrungBinh"
+                class="bg-blue-400 text-white px-4 py-2 rounded-md hover:bg-blue-600">Tính trung bình</button>
+            <div id="result2" class="mt-4 text-center text-lg font-semibold"></div>
+        </div>
+        <!-- Bài 3: Quy đổi tiền -->
+        <div id="Bai_3" class="bg-white p-6 shadow rounded-lg max-w-4xl mb-4">
+            <div class="mb-4">
+                <label for="money" class="block text-sm font-medium text-gray-700">Nhập tiền USD</label>
+                <input type="number" id="money"
+                    class="mt-1 px-3 py-2 block w-full border border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:outline-none">
+            </div>
+            <button onclick="quyDoiTien()" id="btnQuyDoiTien"
+                class="bg-blue-400 text-white px-4 py-2 rounded-md hover:bg-blue-600">Quy đổi tiền</button>
+            <div id="result3" class="mt-4 text-center text-lg font-semibold"></div>
+        </div>
+        <!-- Bài 4: Tính diện tích, chu vi hình chữ nhật -->
+        <div id="Bai_4" class="bg-white p-6 shadow rounded-lg max-w-4xl mb-4">
+            <h2 class="mb-5 text-red-600">Tính diện tích, chu vi hình chữ nhật</h2>
+            <div class="grid grid-cols-2 gap-4 mb-4">
+                <div>
+                    <label for="chieuDai" class="block text-sm font-medium text-gray-700">Chiều dài</label>
+                    <input type="number" id="chieuDai"
+                        class="mt-1 px-3 py-2 block w-full border border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:outline-none">
+                </div>
+                <div>
+                    <label for="chieuRong" class="block text-sm font-medium text-gray-700">Chiều rộng</label>
+                    <input type="number" id="chieuRong"
+                        class="mt-1 px-3 py-2 block w-full border border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:outline-none">
+                </div>
+            </div>
+
+            <button onclick="tinhHinhChuNhat()" id="btnTinhHinhChuNhat"
+                class="bg-blue-400 text-white px-4 py-2 rounded-md hover:bg-blue-600">Tính diện tích, chu vi</button>
+            <div id="result4" class="mt-4 text-center text-lg font-semibold"></div>
+
+        </div>
+        <!-- Bài 5: Tính tổng 2 ký số -->
+        <div id="Bai_5" class="bg-white p-6 shadow rounded-lg max-w-4xl mb-4">
+            <h2 class="mb-5 text-red-600">Tính tổng 2 ký số</h2>
+            <div class="grid grid-cols-2 gap-4 mb-4">
+                <div>
+                    <label for="so2ChuSo" class="block text-sm font-medium text-gray-700">Ký số 1</label>
+                    <input type="number" id="so2ChuSo"
+                        class="mt-1 px-3 py-2 block w-full border border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:outline-none">
+                </div>
+            </div>
+
+            <button onclick="tinhTongKySo()" id="btnTinhTongKySo"
+                class="bg-blue-400 text-white px-4 py-2 rounded-md hover:bg-blue-600">Tính tổng ký số</button>
+            <div id="result5" class="mt-4 text-center text-lg font-semibold"></div>
+        </div>
     </div>
-    <!-- Bài 2: Tính giá trị trung bình 5 số -->
-    <div id="Bai_2" class=""></div>
-    <!-- Bài 3: Quy đổi tiền -->
-    <div id="Bai_3" class=""></div>
-    <!-- Bài 4: Tính diện tích, chu vi hình chữ nhật -->
-    <div id="Bai_4" class=""></div>
-    <!-- Bài 5: Tính tổng 2 ký số -->
-    <div id="Bai_5" class=""></div>
-
     <script src="./js/index.js"></script>
 </body>
+
 </html>
